@@ -13,5 +13,6 @@ public class ClasseRaphael {
     public static void main(String[] args) {
         System.out.println("Raphael Almeida Ferreira");
         System.out.println("Leticia Romão Bettamio Duarte"); 
+        System.out.println("João Vitor Lopes Ferreira");
     }
 }
