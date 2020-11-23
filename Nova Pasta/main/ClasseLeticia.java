@@ -7,11 +7,10 @@ package main;
 
 /**
  *
- * @author Raphael Almeida
+ * @author Artur Felix
  */
-public class ClasseRaphael {
+public class ClasseLeticia {
     public static void main(String[] args) {
-        System.out.println("Raphael Almeida Ferreira");
-        System.out.println("Leticia Romão Bettamio Duarte"); 
+        System.out.println("Leticia Romão Bettamio Duarte");   
     }
 }
