@@ -15,5 +15,6 @@ public class ClasseLeticia {
         System.out.println("João Vitor Lopes Ferreira");
         System.out.println("Wallace Castilho Martin");
         System.out.println("Raphael Almeida Ferreira");
+        System.out.println("Artur Felix da Silva");
     }
 }
