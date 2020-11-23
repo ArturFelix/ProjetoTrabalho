@@ -14,5 +14,6 @@ public class ClasseJoao {
     System.out.println("João Vitor Lopes Ferreira");
     System.out.println("Leticia Romão Bettamio Duarte");
     System.out.println("Wallace Castilho Martin");
+    System.out.println("Raphael Almeida Ferrera");
 } 
 }
