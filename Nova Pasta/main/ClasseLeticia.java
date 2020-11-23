@@ -11,6 +11,7 @@ package main;
  */
 public class ClasseLeticia {
     public static void main(String[] args) {
-        System.out.println("Leticia Romão Bettamio Duarte");   
+        System.out.println("Leticia Romão Bettamio Duarte");
+        System.out.println("João Vitor Lopes Ferreira");
     }
 }
