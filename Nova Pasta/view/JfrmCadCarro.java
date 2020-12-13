@@ -12,6 +12,11 @@ import java.util.List;
 import javax.persistence.RollbackException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -252,10 +257,10 @@ public class JfrmCadCarro extends JPanel {
         
         JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(list, false);
         try{
-        JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorio1.jasper", null, dados);
-        JasperViewer visualizador = new JasperViewer(relatorio, false);
+            JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorio1.jasper", null, dados);
+            JasperViewer visualizador = new JasperViewer(relatorio, false);
         visualizador.setVisible(true);
-        }catch(JRException jar){
+        }catch(JRException ex){
             System.out.println("Erro " + ex.getMessage());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
