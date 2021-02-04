@@ -105,7 +105,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" max="32767" attributes="0"/>
+          <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -200,6 +200,7 @@
                                   <Component id="deleteButton" linkSize="1" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                                   <Component id="refreshButton" linkSize="1" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                                   <Component id="newButton" linkSize="1" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Component id="dateCelRender1" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
@@ -222,6 +223,8 @@
                               <Component id="refreshButton" min="-2" pref="30" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="saveButton" min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="dateCelRender1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -303,7 +306,9 @@
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
-                          <Renderer/>
+                          <Renderer editor="org.netbeans.modules.form.ComponentChooserEditor">
+                            <ComponentRef name="dateCelRender1"/>
+                          </Renderer>
                         </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
@@ -455,6 +460,9 @@
                     <BindingProperty name="value" source="masterTable" sourcePath="${selectedElement.data}" target="jFormattedTextField2" targetPath="value" updateStrategy="0" immediately="false"/>
                     <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="jFormattedTextField2" targetPath="enabled" updateStrategy="0" immediately="false"/>
                   </BindingProperties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextField2ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="carroIdcarroLabel">
                   <Properties>
@@ -463,6 +471,11 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="render.DateCelRender" name="dateCelRender1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="dateCelRender1"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

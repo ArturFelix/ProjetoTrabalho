@@ -6,6 +6,7 @@
 package view;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
 import java.beans.Beans;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -74,6 +75,7 @@ public class JfrmCadConserto extends JPanel {
         idConsertoLabel = new javax.swing.JLabel();
         jFormattedTextField2 = new javax.swing.JFormattedTextField();
         carroIdcarroLabel = new javax.swing.JLabel();
+        dateCelRender1 = new render.DateCelRender();
 
         FormListener formListener = new FormListener();
 
@@ -154,6 +156,9 @@ public class JfrmCadConserto extends JPanel {
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
         masterScrollPane.setViewportView(masterTable);
+        if (masterTable.getColumnModel().getColumnCount() > 0) {
+            masterTable.getColumnModel().getColumn(1).setCellRenderer(dateCelRender1);
+        }
 
         org.jdesktop.swingbinding.JComboBoxBinding jComboBoxBinding = org.jdesktop.swingbinding.SwingBindings.createJComboBoxBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, mecanicoList, jComboBox2);
         bindingGroup.addBinding(jComboBoxBinding);
@@ -189,6 +194,8 @@ public class JfrmCadConserto extends JPanel {
         bindingGroup.addBinding(binding);
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), jFormattedTextField2, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
+
+        jFormattedTextField2.addActionListener(formListener);
 
         carroIdcarroLabel.setText("Carro:");
 
@@ -234,6 +241,8 @@ public class JfrmCadConserto extends JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        dateCelRender1.setText("dateCelRender1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -247,7 +256,8 @@ public class JfrmCadConserto extends JPanel {
                             .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(newButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(newButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dateCelRender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -267,7 +277,9 @@ public class JfrmCadConserto extends JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dateCelRender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
@@ -295,60 +307,34 @@ public class JfrmCadConserto extends JPanel {
     private class FormListener implements java.awt.event.ActionListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            if (evt.getSource() == jButton1) {
-                JfrmCadConserto.this.jButton1ActionPerformed(evt);
-            }
-            else if (evt.getSource() == deleteButton) {
-                JfrmCadConserto.this.deleteButtonActionPerformed(evt);
-            }
-            else if (evt.getSource() == newButton) {
-                JfrmCadConserto.this.newButtonActionPerformed(evt);
-            }
-            else if (evt.getSource() == refreshButton) {
-                JfrmCadConserto.this.refreshButtonActionPerformed(evt);
+            if (evt.getSource() == jComboBox1) {
+                JfrmCadConserto.this.jComboBox1ActionPerformed(evt);
             }
             else if (evt.getSource() == saveButton) {
                 JfrmCadConserto.this.saveButtonActionPerformed(evt);
             }
-            else if (evt.getSource() == jComboBox1) {
-                JfrmCadConserto.this.jComboBox1ActionPerformed(evt);
+            else if (evt.getSource() == refreshButton) {
+                JfrmCadConserto.this.refreshButtonActionPerformed(evt);
+            }
+            else if (evt.getSource() == newButton) {
+                JfrmCadConserto.this.newButtonActionPerformed(evt);
+            }
+            else if (evt.getSource() == deleteButton) {
+                JfrmCadConserto.this.deleteButtonActionPerformed(evt);
+            }
+            else if (evt.getSource() == jButton1) {
+                JfrmCadConserto.this.jButton1ActionPerformed(evt);
+            }
+            else if (evt.getSource() == jFormattedTextField2) {
+                JfrmCadConserto.this.jFormattedTextField2ActionPerformed(evt);
             }
         }
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    @SuppressWarnings("unchecked")
-    private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
-        entityManager.getTransaction().rollback();
-        entityManager.getTransaction().begin();
-        java.util.Collection data = query.getResultList();
-        for (Object entity : data) {
-            entityManager.refresh(entity);
-        }
-        list.clear();
-        list.addAll(data);
-    }//GEN-LAST:event_refreshButtonActionPerformed
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        int[] selected = masterTable.getSelectedRows();
-        List<view.Conserto> toRemove = new ArrayList<view.Conserto>(selected.length);
-        for (int idx = 0; idx < selected.length; idx++) {
-            view.Conserto c = list.get(masterTable.convertRowIndexToModel(selected[idx]));
-            toRemove.add(c);
-            entityManager.remove(c);
-        }
-        list.removeAll(toRemove);
-    }//GEN-LAST:event_deleteButtonActionPerformed
-
-    private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-        view.Conserto c = new view.Conserto();
-        entityManager.persist(c);
-        list.add(c);
-        int row = list.size() - 1;
-        masterTable.setRowSelectionInterval(row, row);
-        masterTable.scrollRectToVisible(masterTable.getCellRect(row, 0, true));
-    }//GEN-LAST:event_newButtonActionPerformed
-    
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         try {
             entityManager.getTransaction().commit();
@@ -365,30 +351,57 @@ public class JfrmCadConserto extends JPanel {
         }
     }//GEN-LAST:event_saveButtonActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+//GEN-FIRST:event_refreshButtonActionPerformed
+ 
+//GEN-LAST:event_refreshButtonActionPerformed
+
+    private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
+        view.Conserto c = new view.Conserto();
+        entityManager.persist(c);
+        list.add(c);
+        int row = list.size() - 1;
+        masterTable.setRowSelectionInterval(row, row);
+        masterTable.scrollRectToVisible(masterTable.getCellRect(row, 0, true));
+    }//GEN-LAST:event_newButtonActionPerformed
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        int[] selected = masterTable.getSelectedRows();
+        List<view.Conserto> toRemove = new ArrayList<view.Conserto>(selected.length);
+        for (int idx = 0; idx < selected.length; idx++) {
+            view.Conserto c = list.get(masterTable.convertRowIndexToModel(selected[idx]));
+            toRemove.add(c);
+            entityManager.remove(c);
+        }
+        list.removeAll(toRemove);
+    }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            // TODO add your handling code here:
-            
-            Map<String, Object> parametros = new HashMap<>();
-            parametros.put("param_nome", "%" + txt_nome + "%");
-            
+        // TODO add your handling code here:
+
+        Map<String, Object> parametros = new HashMap<>();
+        parametros.put("param_nome", "%" + txt_nome + "%");
+
         try{
             JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorio_consulta02.jasper", parametros, Conexao.getConexao());
             JasperViewer visualizador = new JasperViewer(relatorio, false);
-        visualizador.setVisible(true);
+            visualizador.setVisible(true);
         }catch(JRException ex){
             System.out.println("Erro " + ex.getMessage());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jFormattedTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextField2ActionPerformed
+
+    
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField carroIdcarroField;
     private javax.swing.JLabel carroIdcarroLabel;
     private javax.swing.JLabel dataLabel;
+    private render.DateCelRender dateCelRender1;
     private javax.swing.JButton deleteButton;
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JTextField idConsertoField;
@@ -454,6 +467,10 @@ public class JfrmCadConserto extends JPanel {
                 frame.setVisible(true);
             }
         });
+    }
+
+    private void refreshButtonActionPerformed(ActionEvent evt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
