@@ -54,7 +54,8 @@ public class JFrmSplash extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 480, 300);
 
-        setBounds(0, 0, 480, 301);
+        setSize(new java.awt.Dimension(480, 301));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
