@@ -11,7 +11,7 @@ import javax.swing.Timer;
 
 /**
  *
- * @author walla
+ * @author Leticia
  */
 public class JFrmSplash extends javax.swing.JFrame {
 
@@ -28,6 +28,11 @@ public class JFrmSplash extends javax.swing.JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             jProgressBar1.setValue(jProgressBar1.getValue() + 1);
+            if(jProgressBar1.getValue() >= 100){
+                timer.stop();
+                JFrmLogin.main(null);
+                setVisible(false);
+            }
         }
     });
      timer.start();

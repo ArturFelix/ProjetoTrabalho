@@ -75,7 +75,6 @@ public class JfrmCadConserto extends JPanel {
         idConsertoLabel = new javax.swing.JLabel();
         jFormattedTextField2 = new javax.swing.JFormattedTextField();
         carroIdcarroLabel = new javax.swing.JLabel();
-        dateCelRender1 = new render.DateCelRender();
 
         FormListener formListener = new FormListener();
 
@@ -157,7 +156,7 @@ public class JfrmCadConserto extends JPanel {
         jTableBinding.bind();
         masterScrollPane.setViewportView(masterTable);
         if (masterTable.getColumnModel().getColumnCount() > 0) {
-            masterTable.getColumnModel().getColumn(1).setCellRenderer(dateCelRender1);
+            masterTable.getColumnModel().getColumn(1).setCellRenderer(null);
         }
 
         org.jdesktop.swingbinding.JComboBoxBinding jComboBoxBinding = org.jdesktop.swingbinding.SwingBindings.createJComboBoxBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, mecanicoList, jComboBox2);
@@ -241,8 +240,6 @@ public class JfrmCadConserto extends JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        dateCelRender1.setText("dateCelRender1");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -256,8 +253,7 @@ public class JfrmCadConserto extends JPanel {
                             .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(newButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dateCelRender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(newButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -277,9 +273,7 @@ public class JfrmCadConserto extends JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dateCelRender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
@@ -307,23 +301,23 @@ public class JfrmCadConserto extends JPanel {
     private class FormListener implements java.awt.event.ActionListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            if (evt.getSource() == jComboBox1) {
-                JfrmCadConserto.this.jComboBox1ActionPerformed(evt);
-            }
-            else if (evt.getSource() == saveButton) {
-                JfrmCadConserto.this.saveButtonActionPerformed(evt);
-            }
-            else if (evt.getSource() == refreshButton) {
-                JfrmCadConserto.this.refreshButtonActionPerformed(evt);
-            }
-            else if (evt.getSource() == newButton) {
-                JfrmCadConserto.this.newButtonActionPerformed(evt);
+            if (evt.getSource() == jButton1) {
+                JfrmCadConserto.this.jButton1ActionPerformed(evt);
             }
             else if (evt.getSource() == deleteButton) {
                 JfrmCadConserto.this.deleteButtonActionPerformed(evt);
             }
-            else if (evt.getSource() == jButton1) {
-                JfrmCadConserto.this.jButton1ActionPerformed(evt);
+            else if (evt.getSource() == newButton) {
+                JfrmCadConserto.this.newButtonActionPerformed(evt);
+            }
+            else if (evt.getSource() == refreshButton) {
+                JfrmCadConserto.this.refreshButtonActionPerformed(evt);
+            }
+            else if (evt.getSource() == saveButton) {
+                JfrmCadConserto.this.saveButtonActionPerformed(evt);
+            }
+            else if (evt.getSource() == jComboBox1) {
+                JfrmCadConserto.this.jComboBox1ActionPerformed(evt);
             }
             else if (evt.getSource() == jFormattedTextField2) {
                 JfrmCadConserto.this.jFormattedTextField2ActionPerformed(evt);
@@ -401,7 +395,6 @@ public class JfrmCadConserto extends JPanel {
     private javax.swing.JTextField carroIdcarroField;
     private javax.swing.JLabel carroIdcarroLabel;
     private javax.swing.JLabel dataLabel;
-    private render.DateCelRender dateCelRender1;
     private javax.swing.JButton deleteButton;
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JTextField idConsertoField;
