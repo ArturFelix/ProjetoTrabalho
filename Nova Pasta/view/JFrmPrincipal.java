@@ -5,11 +5,15 @@
  */
 package view;
 
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.view.JasperViewer;
+import util.Conexao;
 
 /**
  *
@@ -278,6 +282,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
         JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(list2, false);
+        System.out.println("size " + list2.size());
         try{
             JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorio_blank.jasper", null, dados);
             JasperViewer visualizador = new JasperViewer(relatorio, false);
@@ -289,9 +294,12 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
-        JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(list4, false);
+        //JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(list4, false);
+        Map<String, Object> params = new HashMap<>();
+        String nome = JOptionPane.showInputDialog("Digite a marca do carro");
+        params.put("param_nome", nome);
         try{
-            JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorio_consulta02.jasper", null, dados);
+            JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorio_consulta02.jasper", params, Conexao.getConexao());
             JasperViewer visualizador = new JasperViewer(relatorio, false);
         visualizador.setVisible(true);
         }catch(JRException ex){

@@ -1,0 +1,18 @@
+Nota Bimestral: 8.2
+======================================================================
+
+Relatorio wizard: ok
+blank: não mostrou os dados, faltou compilar novamente o relatório
+duas tabelas: ok
+parâmetro: Não foi alterado o titulo e substitulo do relatorio. Chamada incorreta do relatório no formulário principal, não foi usada a classe de conexão e não foi passado o parâmetro.
+
+Formulário de Agenda de Consertos estava com botões não traduzidos. Possuia duas abas, uma sem a definição de título (tab2). Ordens das abas está incorreta, a ênfase (primeira tab visível) deveria ser a de cadastro.
+
+Botão com icone de relatório no formulário principal, barra de ferramentas, não funciona.
+
+Foi criado renderizador, mas não foi utilizado na formatar as colunas de nenhuma tabela.
+
+
+login ok
+splash ok
+
